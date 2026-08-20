@@ -145,13 +145,13 @@
   <div class="hdr-left">
     <div class="hdr-eyebrow">Healthcare ML · Predictive Analytics</div>
     <div class="hdr-title"><span>BridgeCare Analytics</span> — 30-Day Readmission Risk</div>
-    <div class="hdr-sub">Random Forest classifier predicting unplanned hospital readmission within 30 days of discharge · ETL pipeline, feature engineering, SMOTE balancing, and SHAP explainability on synthetic EHR data.</div>
+    <div class="hdr-sub">4-model comparison (Random Forest, XGBoost, Logistic Regression, Decision Tree) predicting unplanned hospital readmission within 30 days of discharge · ETL pipeline, feature engineering, SMOTE balancing, and SHAP explainability on synthetic EHR data.</div>
   </div>
   <div class="hdr-right">
     <div class="hdr-badges">
       <div class="badge b-teal">Python · Scikit-learn</div>
       <div class="badge b-gold">SQL · PostgreSQL</div>
-      <div class="badge b-green">AUC 0.847</div>
+      <div class="badge b-green">AUC 0.875</div>
     </div>
     <div class="hdr-author">Andrew Dankyi Twum &nbsp;·&nbsp; dankyit@gmail.com</div>
   </div>
@@ -166,27 +166,27 @@
 <div class="kpis">
   <div class="kpi">
     <div class="kpi-lbl">Model AUC–ROC</div>
-    <div class="kpi-val hi">0.847</div>
+    <div class="kpi-val hi">0.875</div>
     <div class="kpi-sub up">▲ Best among 4 models</div>
   </div>
   <div class="kpi">
     <div class="kpi-lbl">Accuracy</div>
-    <div class="kpi-val">82.4%</div>
+    <div class="kpi-val">79.5%</div>
     <div class="kpi-sub up">Post-SMOTE balanced</div>
   </div>
   <div class="kpi">
     <div class="kpi-lbl">Precision</div>
-    <div class="kpi-val">78.1%</div>
-    <div class="kpi-sub mid">Readmission class</div>
+    <div class="kpi-val">32.3%</div>
+    <div class="kpi-sub mid">Readmission class @ 0.5</div>
   </div>
   <div class="kpi">
     <div class="kpi-lbl">Recall</div>
-    <div class="kpi-val">74.6%</div>
-    <div class="kpi-sub mid">Readmission class</div>
+    <div class="kpi-val">78.8%</div>
+    <div class="kpi-sub mid">Readmission class @ 0.5</div>
   </div>
   <div class="kpi">
     <div class="kpi-lbl">Patient Records</div>
-    <div class="kpi-val">50K+</div>
+    <div class="kpi-val">12,000</div>
     <div class="kpi-sub hi">Synthetic EHR · UCI basis</div>
   </div>
 </div>
@@ -194,58 +194,58 @@
 <!-- ROW 1: ROC Curve + Model Comparison + Confusion Matrix -->
 <div class="row r3">
   <div class="card">
-    <div class="ctitle">ROC Curve — Random Forest (Best Model) <span class="ctitle-note">AUC = 0.847</span></div>
+    <div class="ctitle">ROC Curve — Logistic Regression (Best Model) <span class="ctitle-note">AUC = 0.875</span></div>
     <div style="position:relative;height:210px;"><canvas id="rocChart"></canvas></div>
   </div>
 
   <div class="card">
     <div class="ctitle">Model Comparison</div>
     <div class="model-row">
-      <div class="model-name">Random Forest <span class="model-winner">WINNER</span></div>
+      <div class="model-name">Logistic Regression <span class="model-winner">WINNER</span></div>
       <div class="model-metrics">
-        <div class="model-metric"><div class="mv hi">0.847</div><div class="ml">AUC</div></div>
-        <div class="model-metric"><div class="mv">82.4%</div><div class="ml">Acc</div></div>
+        <div class="model-metric"><div class="mv hi">0.875</div><div class="ml">AUC</div></div>
+        <div class="model-metric"><div class="mv">79.5%</div><div class="ml">Acc</div></div>
+      </div>
+    </div>
+    <div class="model-row">
+      <div class="model-name">Random Forest</div>
+      <div class="model-metrics">
+        <div class="model-metric"><div class="mv">0.854</div><div class="ml">AUC</div></div>
+        <div class="model-metric"><div class="mv">86.7%</div><div class="ml">Acc</div></div>
       </div>
     </div>
     <div class="model-row">
       <div class="model-name">XGBoost</div>
       <div class="model-metrics">
-        <div class="model-metric"><div class="mv">0.831</div><div class="ml">AUC</div></div>
-        <div class="model-metric"><div class="mv">80.9%</div><div class="ml">Acc</div></div>
-      </div>
-    </div>
-    <div class="model-row">
-      <div class="model-name">Logistic Regression</div>
-      <div class="model-metrics">
-        <div class="model-metric"><div class="mv">0.794</div><div class="ml">AUC</div></div>
-        <div class="model-metric"><div class="mv">76.2%</div><div class="ml">Acc</div></div>
+        <div class="model-metric"><div class="mv">0.847</div><div class="ml">AUC</div></div>
+        <div class="model-metric"><div class="mv">89.0%</div><div class="ml">Acc</div></div>
       </div>
     </div>
     <div class="model-row">
       <div class="model-name">Decision Tree</div>
       <div class="model-metrics">
-        <div class="model-metric"><div class="mv">0.741</div><div class="ml">AUC</div></div>
-        <div class="model-metric"><div class="mv">73.8%</div><div class="ml">Acc</div></div>
+        <div class="model-metric"><div class="mv">0.783</div><div class="ml">AUC</div></div>
+        <div class="model-metric"><div class="mv">83.8%</div><div class="ml">Acc</div></div>
       </div>
     </div>
     <div style="margin-top:14px;">
       <div class="ctitle" style="margin-bottom:8px;">Performance Metrics</div>
-      <div class="stat-row"><div class="stat-lbl">F1 Score</div><div class="stat-val">0.762</div></div>
-      <div class="stat-row"><div class="stat-lbl">Cross-val AUC (5-fold)</div><div class="stat-val">0.841 ± 0.009</div></div>
+      <div class="stat-row"><div class="stat-lbl">F1 Score (@ 0.5 threshold)</div><div class="stat-val">0.458</div></div>
+      <div class="stat-row"><div class="stat-lbl">Cross-val AUC (5-fold)</div><div class="stat-val">0.892 ± 0.005</div></div>
       <div class="stat-row"><div class="stat-lbl">Class imbalance ratio</div><div class="stat-val">~11% readmit</div></div>
-      <div class="stat-row"><div class="stat-lbl">Balancing method</div><div class="stat-val">SMOTE</div></div>
+      <div class="stat-row"><div class="stat-lbl">Balancing method</div><div class="stat-val">SMOTE (train set only)</div></div>
     </div>
   </div>
 
   <div class="card">
-    <div class="ctitle">Confusion Matrix <span class="ctitle-note">Test set · n=10,234</span></div>
+    <div class="ctitle">Confusion Matrix <span class="ctitle-note">Test set · n=2,400</span></div>
     <div style="margin:8px 0 4px;">
       <div class="cm-axis"><div class="cm-axis-lbl">Pred: No</div><div class="cm-axis-lbl">Pred: Yes</div></div>
       <div class="cm-grid">
-        <div class="cm-cell cm-tn"><div class="cm-val">7,841</div><div class="cm-lbl">True Negative</div></div>
-        <div class="cm-cell cm-fp"><div class="cm-val">482</div><div class="cm-lbl">False Positive</div></div>
-        <div class="cm-cell cm-fn"><div class="cm-val">320</div><div class="cm-lbl">False Negative</div></div>
-        <div class="cm-cell cm-tp"><div class="cm-val">1,591</div><div class="cm-lbl">True Positive</div></div>
+        <div class="cm-cell cm-tn"><div class="cm-val">1,699</div><div class="cm-lbl">True Negative</div></div>
+        <div class="cm-cell cm-fp"><div class="cm-val">437</div><div class="cm-lbl">False Positive</div></div>
+        <div class="cm-cell cm-fn"><div class="cm-val">56</div><div class="cm-lbl">False Negative</div></div>
+        <div class="cm-cell cm-tp"><div class="cm-val">208</div><div class="cm-lbl">True Positive</div></div>
       </div>
     </div>
     <div style="margin-top:16px;">
@@ -258,17 +258,17 @@
 <!-- ROW 2: Feature Importance + Pipeline -->
 <div class="row r2b">
   <div class="card">
-    <div class="ctitle">Top Feature Importances <span class="ctitle-note">SHAP-derived · Random Forest</span></div>
-    <div class="feat-row"><div class="feat-label">Prior inpatient stays</div><div class="feat-track"><div class="feat-fill" style="width:88%;background:#0B2545;">8.8%</div></div><div class="feat-pct hi">8.8%</div></div>
-    <div class="feat-row"><div class="feat-label">Time in hospital (days)</div><div class="feat-track"><div class="feat-fill" style="width:82%;background:#163A5F;">8.2%</div></div><div class="feat-pct hi">8.2%</div></div>
-    <div class="feat-row"><div class="feat-label">Number of diagnoses</div><div class="feat-track"><div class="feat-fill" style="width:76%;background:#1D6B8C;">7.6%</div></div><div class="feat-pct hi">7.6%</div></div>
-    <div class="feat-row"><div class="feat-label">Number of medications</div><div class="feat-track"><div class="feat-fill" style="width:69%;background:#2A93B5;">6.9%</div></div><div class="feat-pct hi">6.9%</div></div>
-    <div class="feat-row"><div class="feat-label">Discharge disposition</div><div class="feat-track"><div class="feat-fill" style="width:62%;background:#C9A84C;">6.2%</div></div><div class="feat-pct" style="color:var(--gold);">6.2%</div></div>
-    <div class="feat-row"><div class="feat-label">Primary diagnosis (ICD)</div><div class="feat-track"><div class="feat-fill" style="width:57%;background:#BA7517;">5.7%</div></div><div class="feat-pct mid">5.7%</div></div>
-    <div class="feat-row"><div class="feat-label">Age group</div><div class="feat-track"><div class="feat-fill" style="width:51%;background:#D9884A;">5.1%</div></div><div class="feat-pct mid">5.1%</div></div>
-    <div class="feat-row"><div class="feat-label">Emergency admissions</div><div class="feat-track"><div class="feat-fill" style="width:48%;background:#C0392B;">4.8%</div></div><div class="feat-pct down">4.8%</div></div>
-    <div class="feat-row"><div class="feat-label">HbA1c result</div><div class="feat-track"><div class="feat-fill" style="width:43%;background:#7B4F9E;">4.3%</div></div><div class="feat-pct" style="color:#7B4F9E;">4.3%</div></div>
-    <div class="feat-row"><div class="feat-label">Insulin prescribed</div><div class="feat-track"><div class="feat-fill" style="width:38%;background:#607D8B;">3.8%</div></div><div class="feat-pct">3.8%</div></div>
+    <div class="ctitle">Top Feature Importances <span class="ctitle-note">SHAP-derived · Logistic Regression</span></div>
+    <div class="feat-row"><div class="feat-label">Time in hospital (days)</div><div class="feat-track"><div class="feat-fill" style="width:100%;background:#0B2545;">18.5%</div></div><div class="feat-pct hi">18.5%</div></div>
+    <div class="feat-row"><div class="feat-label">Number of diagnoses</div><div class="feat-track"><div class="feat-fill" style="width:87%;background:#163A5F;">16.1%</div></div><div class="feat-pct hi">16.1%</div></div>
+    <div class="feat-row"><div class="feat-label">Prior inpatient stays</div><div class="feat-track"><div class="feat-fill" style="width:63%;background:#1D6B8C;">11.7%</div></div><div class="feat-pct hi">11.7%</div></div>
+    <div class="feat-row"><div class="feat-label">Number of medications</div><div class="feat-track"><div class="feat-fill" style="width:56%;background:#2A93B5;">10.4%</div></div><div class="feat-pct hi">10.4%</div></div>
+    <div class="feat-row"><div class="feat-label">Admission: Emergency</div><div class="feat-track"><div class="feat-fill" style="width:36%;background:#C9A84C;">6.7%</div></div><div class="feat-pct" style="color:var(--gold);">6.7%</div></div>
+    <div class="feat-row"><div class="feat-label">Admission: Urgent</div><div class="feat-track"><div class="feat-fill" style="width:21%;background:#BA7517;">3.8%</div></div><div class="feat-pct mid">3.8%</div></div>
+    <div class="feat-row"><div class="feat-label">Discharge: Home</div><div class="feat-track"><div class="feat-fill" style="width:15%;background:#D9884A;">2.7%</div></div><div class="feat-pct mid">2.7%</div></div>
+    <div class="feat-row"><div class="feat-label">Admission: Elective</div><div class="feat-track"><div class="feat-fill" style="width:14%;background:#C0392B;">2.6%</div></div><div class="feat-pct down">2.6%</div></div>
+    <div class="feat-row"><div class="feat-label">HbA1c: Normal</div><div class="feat-track"><div class="feat-fill" style="width:13%;background:#7B4F9E;">2.4%</div></div><div class="feat-pct" style="color:#7B4F9E;">2.4%</div></div>
+    <div class="feat-row"><div class="feat-label">Discharge: Home Health</div><div class="feat-track"><div class="feat-fill" style="width:11%;background:#607D8B;">2.1%</div></div><div class="feat-pct">2.1%</div></div>
     <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);">
       <div style="position:relative;height:130px;"><canvas id="featChart"></canvas></div>
     </div>
@@ -289,7 +289,7 @@
         <div class="pip-dot" style="background:#163A5F;">2</div>
         <div class="pip-body">
           <div class="pip-title">Feature Engineering</div>
-          <div class="pip-desc">28 raw features → 42 engineered features. ICD-9 grouping, age binning, discharge disposition encoding, medication change flags, and comorbidity indexing.</div>
+          <div class="pip-desc">13 raw columns → 33 model-ready features via one-hot encoding of categoricals (age group, admission type, discharge disposition, insulin, HbA1c, diabetes med) plus scaled numeric features.</div>
           <div><span class="pip-tag" style="background:#EAF3DE;color:#3B6D11;">pandas</span><span class="pip-tag" style="background:#EAF3DE;color:#3B6D11;">NumPy</span></div>
         </div>
       </div>
@@ -304,8 +304,8 @@
       <div class="pip-step">
         <div class="pip-dot" style="background:var(--teal-light);">4</div>
         <div class="pip-body">
-          <div class="pip-title">Model Training &amp; Tuning</div>
-          <div class="pip-desc">GridSearchCV over 4 classifiers (RF, XGB, LR, DT). 5-fold stratified cross-validation. Best params: n_estimators=200, max_depth=12, min_samples_split=5.</div>
+          <div class="pip-title">Model Training &amp; Comparison</div>
+          <div class="pip-desc">4 classifiers trained on the SMOTE-balanced set (RF, XGBoost, LR, DT), evaluated on a held-out test set with 5-fold stratified cross-validation. Logistic Regression generalized best (test AUC 0.875 vs. 0.78–0.85 for the others).</div>
           <div><span class="pip-tag" style="background:#EAF3DE;color:#3B6D11;">scikit-learn</span><span class="pip-tag" style="background:#E6F3FB;color:#0D5B8A;">XGBoost</span></div>
         </div>
       </div>
@@ -313,7 +313,7 @@
         <div class="pip-dot" style="background:var(--gold);">5</div>
         <div class="pip-body">
           <div class="pip-title">Explainability (SHAP)</div>
-          <div class="pip-desc">TreeExplainer generates per-patient SHAP values. Top drivers: prior admissions, LOS, diagnosis count. Supports clinical interpretability for discharge planning.</div>
+          <div class="pip-desc">LinearExplainer generates per-patient SHAP values for the winning Logistic Regression model. Top drivers: length of stay, diagnosis count, prior admissions. Supports clinical interpretability for discharge planning.</div>
           <div><span class="pip-tag" style="background:#F0E6FB;color:#5A2D8A;">SHAP</span><span class="pip-tag" style="background:#FAEEDA;color:#854F0B;">matplotlib</span></div>
         </div>
       </div>
@@ -342,6 +342,7 @@
         <tr><td>num_diagnoses</td><td><span class="pill p-int">INT</span></td><td>Total diagnosis codes</td></tr>
         <tr><td colspan="3" style="background:#F8FBFD;font-weight:700;font-size:9px;color:var(--teal);padding:6px 8px;letter-spacing:0.05em;">MEDICATIONS &amp; LABS</td></tr>
         <tr><td>num_medications</td><td><span class="pill p-int">INT</span></td><td>Medications prescribed</td></tr>
+        <tr><td>num_lab_procedures</td><td><span class="pill p-int">INT</span></td><td>Lab procedures during stay</td></tr>
         <tr><td>insulin</td><td><span class="pill p-cat">CAT</span></td><td>No / Steady / Up / Down</td></tr>
         <tr><td>hba1c_result</td><td><span class="pill p-cat">CAT</span></td><td>Normal / &gt;7 / &gt;8 / None</td></tr>
         <tr><td>diabetesMed</td><td><span class="pill p-bool">BOOL</span></td><td>Diabetes medication prescribed</td></tr>
@@ -356,11 +357,11 @@
     <div style="position:relative;height:175px;"><canvas id="losChart"></canvas></div>
     <div style="margin-top:14px;">
       <div class="ctitle" style="margin-bottom:8px;">Readmission by Discharge Type</div>
-      <div class="stat-row"><div class="stat-lbl">Home — self care</div><div class="stat-val up">8.2%</div></div>
-      <div class="stat-row"><div class="stat-lbl">Transferred to rehab</div><div class="stat-val mid">14.7%</div></div>
-      <div class="stat-row"><div class="stat-lbl">Skilled nursing facility</div><div class="stat-val mid">18.3%</div></div>
-      <div class="stat-row"><div class="stat-lbl">Home with home health</div><div class="stat-val down">22.1%</div></div>
-      <div class="stat-row"><div class="stat-lbl">AMA (against medical advice)</div><div class="stat-val down">31.4%</div></div>
+      <div class="stat-row"><div class="stat-lbl">Rehab</div><div class="stat-val up">8.8%</div></div>
+      <div class="stat-row"><div class="stat-lbl">Home — self care</div><div class="stat-val up">9.7%</div></div>
+      <div class="stat-row"><div class="stat-lbl">Skilled nursing facility</div><div class="stat-val mid">11.5%</div></div>
+      <div class="stat-row"><div class="stat-lbl">AMA (against medical advice)</div><div class="stat-val down">14.0%</div></div>
+      <div class="stat-row"><div class="stat-lbl">Home with home health</div><div class="stat-val down">15.6%</div></div>
     </div>
   </div>
 
@@ -369,10 +370,10 @@
     <div style="position:relative;height:175px;"><canvas id="riskChart"></canvas></div>
     <div style="margin-top:14px;">
       <div class="ctitle" style="margin-bottom:8px;">Risk Tier Segmentation</div>
-      <div class="stat-row"><div class="stat-lbl">🟢 Low risk (&lt;0.25)</div><div class="stat-val up">58.4% of patients</div></div>
-      <div class="stat-row"><div class="stat-lbl">🟡 Moderate (0.25–0.60)</div><div class="stat-val mid">28.9% of patients</div></div>
-      <div class="stat-row"><div class="stat-lbl">🔴 High risk (&gt;0.60)</div><div class="stat-val down">12.7% of patients</div></div>
-      <div class="stat-row"><div class="stat-lbl">Optimal decision threshold</div><div class="stat-val">0.38</div></div>
+      <div class="stat-row"><div class="stat-lbl">🟢 Low risk (&lt;0.25)</div><div class="stat-val up">54.8% of patients</div></div>
+      <div class="stat-row"><div class="stat-lbl">🟡 Moderate (0.25–0.60)</div><div class="stat-val mid">24.4% of patients</div></div>
+      <div class="stat-row"><div class="stat-lbl">🔴 High risk (&gt;0.60)</div><div class="stat-val down">20.8% of patients</div></div>
+      <div class="stat-row"><div class="stat-lbl">Optimal decision threshold</div><div class="stat-val">0.545</div></div>
     </div>
   </div>
 </div>
@@ -380,22 +381,22 @@
 <!-- FOOTER -->
 <div class="footer">
   <span>📊 Andrew Dankyi Twum &nbsp;·&nbsp; BridgeCare Analytics &nbsp;·&nbsp; dankyit@gmail.com &nbsp;·&nbsp; <a href="https://github.com/AndrewDankyi/bridgecare-analytics">github.com/AndrewDankyi/bridgecare-analytics</a></span>
-  <span>Random Forest · SMOTE · SHAP · PostgreSQL · scikit-learn</span>
+  <span>Logistic Regression · SMOTE · SHAP · PostgreSQL · scikit-learn</span>
 </div>
 
 <script>
 // ── ROC CURVE ──
 (function(){
   const pts=[
-    [0,0],[0.02,0.28],[0.05,0.48],[0.08,0.58],[0.12,0.67],[0.18,0.74],
-    [0.25,0.79],[0.33,0.84],[0.42,0.88],[0.55,0.91],[0.68,0.94],[0.80,0.96],[1,1]
+    [0,0],[0.009,0.178],[0.019,0.299],[0.036,0.356],[0.054,0.447],[0.068,0.527],
+    [0.089,0.58],[0.108,0.633],[0.128,0.689],[0.17,0.746],[0.213,0.799],[0.262,0.856],[0.323,0.909],[0.475,0.955],[1,1]
   ];
   const random=[[0,0],[1,1]];
   new Chart(document.getElementById('rocChart'),{
     type:'line',
     data:{
       datasets:[
-        {label:'Random Forest (AUC=0.847)',data:pts.map(p=>({x:p[0],y:p[1]})),borderColor:'#0B2545',backgroundColor:'rgba(11,37,69,0.08)',fill:true,borderWidth:2.5,pointRadius:0,tension:0.4},
+        {label:'Logistic Regression (AUC=0.875)',data:pts.map(p=>({x:p[0],y:p[1]})),borderColor:'#0B2545',backgroundColor:'rgba(11,37,69,0.08)',fill:true,borderWidth:2.5,pointRadius:0,tension:0.4},
         {label:'Random (AUC=0.500)',data:random.map(p=>({x:p[0],y:p[1]})),borderColor:'#ccc',borderDash:[5,5],borderWidth:1.5,pointRadius:0,fill:false}
       ]
     },
@@ -412,9 +413,9 @@
 
 // ── THRESHOLD (Precision/Recall vs threshold) ──
 (function(){
-  const thresholds=[0.1,0.2,0.3,0.38,0.5,0.6,0.7,0.8,0.9];
-  const precision=[0.42,0.55,0.65,0.78,0.84,0.89,0.93,0.96,0.98];
-  const recall=[0.97,0.94,0.88,0.75,0.61,0.47,0.34,0.20,0.09];
+  const thresholds=[0.1,0.2,0.3,0.55,0.5,0.6,0.7,0.8,0.9];
+  const precision=[0.165,0.208,0.247,0.348,0.322,0.375,0.418,0.498,0.686];
+  const recall=[0.973,0.943,0.913,0.761,0.788,0.716,0.598,0.466,0.265];
   new Chart(document.getElementById('threshChart'),{
     type:'line',
     data:{
@@ -437,8 +438,8 @@
 
 // ── FEATURE IMPORTANCE (horizontal) ──
 (function(){
-  const labels=['Prior inpatient','LOS (days)','# Diagnoses','# Medications','Discharge disp.','Primary ICD','Age group','Emergency admits','HbA1c','Insulin'];
-  const vals=[8.8,8.2,7.6,6.9,6.2,5.7,5.1,4.8,4.3,3.8];
+  const labels=['Time in hospital','# Diagnoses','Prior inpatient','# Medications','Admit: Emergency','Admit: Urgent','Discharge: Home','Admit: Elective','HbA1c: Normal','Discharge: Home Health'];
+  const vals=[18.5,16.1,11.7,10.4,6.7,3.8,2.7,2.6,2.4,2.1];
   const colors=['#0B2545','#163A5F','#1D6B8C','#2A93B5','#C9A84C','#BA7517','#D9884A','#C0392B','#7B4F9E','#607D8B'];
   new Chart(document.getElementById('featChart'),{
     type:'bar',
@@ -456,8 +457,8 @@
 
 // ── LOS vs READMISSION RATE ──
 (function(){
-  const los=['1','2','3','4','5','6','7','8–10','11–14','14+'];
-  const rates=[5.1,7.8,10.2,12.4,14.9,17.1,19.3,22.8,27.4,34.2];
+  const los=['1','2','3','4','5','6','7','8–10','11–14'];
+  const rates=[2.3,1.9,4.0,4.0,4.9,7.2,6.9,11.7,21.6];
   new Chart(document.getElementById('losChart'),{
     type:'bar',
     data:{
@@ -478,7 +479,7 @@
 // ── RISK DISTRIBUTION ──
 (function(){
   const bins=['0.0','0.1','0.2','0.3','0.4','0.5','0.6','0.7','0.8','0.9'];
-  const counts=[2840,4920,3810,2640,1890,1420,1020,680,340,180];
+  const counts=[4285,1725,1123,868,808,697,601,604,647,642];
   const colors=bins.map((_,i)=>i<3?'#1D9E75':i<6?'#C9A84C':'#C0392B');
   new Chart(document.getElementById('riskChart'),{
     type:'bar',
